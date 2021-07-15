@@ -12,11 +12,6 @@ const OrderSchema = new Schema({
         type: Number,
         default: 1
     },
-    client: {
-        type: Schema.Types.ObjectId,
-        ref: 'client',
-        required: true
-    },
     date: {
         type: Date,
         default: Date.now
