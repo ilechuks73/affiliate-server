@@ -1,5 +1,6 @@
 const config = require('config')
 const jwt = require('jsonwebtoken')
+const dotenv = require('dotenv').config()
 
 function auth(req, res, next){
     const token = req.header('x-auth-token')
@@ -9,7 +10,7 @@ function auth(req, res, next){
 
     try {
         //verify token
-        const decode = jwt.verify(token, config.get('jwtSecret'))
+        const decode = jwt.verify(token, process.env.SECRET_KEY)
         //Add user from payload
         req.user = decode;
         next()

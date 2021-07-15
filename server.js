@@ -7,18 +7,21 @@ const signin = require('./routes/login')
 const dashboard = require('./routes/dashboard')
 const product = require('./routes/dashboard/product')
 const order = require('./routes/dashboard/order')
-const config = require('config')
+const dotenv = require('dotenv').config()
+// const db = require('./database')
+
+
 
 
 //connect to a port
 const PORT = process.env.PORT || 5000
 
 mongoose.Promise = global.Promise
-//DB config
-const db = config.get('mongoURI')
+
 
 //connect to database
-mongoose.connect(db, 
+mongoose.connect(
+  process.env.NODE_ENV === 'production' ? process.env.mongoURI_prod : process.env.mongoURI_dev, 
         {
             useUnifiedTopology: true,
             useNewUrlParser: true,
@@ -56,8 +59,7 @@ app.use((req, res, next) => {
 })
 
 app.use((error, req, res, next) => {
-  res.status(error.status || 500)
-  res.json({
+  res.status(error.status || 500).json({
     error: {
       message: error.message
     }

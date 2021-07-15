@@ -1,11 +1,13 @@
 const mongoose = require('mongoose')
 const Order = require('../models/Order')
 const Product = require('../models/Product')
+const Client = require('../models/Client')
 
 mongoose.Promise = global.Promise
 
 //create orders
 exports.create_orders = (req, res) => {
+
     Product.findById(req.body.productId)
     .then(result => {
         if(!result){
@@ -16,7 +18,7 @@ exports.create_orders = (req, res) => {
         const newOrder = new Order({
             _id: mongoose.Types.ObjectId(),
             quantity: req.body.quantity,
-            product: req.body.productId,
+            product: req.body.productId
         })
         return newOrder.save()
     })
@@ -47,6 +49,9 @@ exports.get_all_orders = (req, res) => {
     .sort({ date: -1})
     .populate('product', 'name')
     .then(data => {
+        if(data.length < 1){
+            return res.json({msg: 'No order has been made yet'})
+        }
         res.status(200).json({
             count: data.length,
             result: data.map(order => {

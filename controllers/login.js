@@ -2,7 +2,8 @@ const Client = require('../models/Client')
 const Marketer = require('../models/Marketer')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const config = require('config')
+const dotenv = require('dotenv').config()
+
 
 //process client's login details
 exports.process_client_login = (req, res) => {
@@ -23,7 +24,7 @@ exports.process_client_login = (req, res) => {
 
             jwt.sign(
                 {id: user.id},
-                config.get('jwtSecret'),
+                process.env.SECRET_KEY,
                 {expiresIn: 3600},
                 (err, token) => {
                     if(err) throw err;
@@ -65,7 +66,7 @@ exports.process_marketer_login = (req, res) => {
 
             jwt.sign(
                 {id: user.id},
-                config.get('jwtSecret'),
+                process.env.SECRET_KEY,
                 {expiresIn: 3600},
                 (err, token) => {
                     if(err) throw err;
