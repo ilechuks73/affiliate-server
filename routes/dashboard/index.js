@@ -1,19 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const Client = require('../../models/Client')
-const Marketer = require('../../models/Marketer')
 const auth = require('../../middleware/auth')
+const dashboardController = require('../../controllers/dashboard')
 
-router.get('/client', auth, (req, res) => {
-    Client.findById(req.user.id)
-    .select('-password')
-    .then(user => res.json(user))
-});
+//client's dashboard
+router.get('/client', auth, dashboardController.dashboard_client);
 
-router.get('/marketer', auth, (req, res) => {
-    Marketer.findById(req.user.id)
-    .select('-password')
-    .then(user => res.json(user))
-});
+//marketer's dashboard
+router.get('/marketer', auth, dashboardController.dashboard_marketer);
 
 module.exports = router;

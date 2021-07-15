@@ -13,6 +13,7 @@ const config = require('config')
 //connect to a port
 const PORT = process.env.PORT || 5000
 
+mongoose.Promise = global.Promise
 //DB config
 const db = config.get('mongoURI')
 
@@ -20,7 +21,8 @@ const db = config.get('mongoURI')
 mongoose.connect(db, 
         {
             useUnifiedTopology: true,
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            useCreateIndex: true
         })
         .then(() => {
             console.log('database connected successfully!')
@@ -33,6 +35,7 @@ mongoose.connect(db,
 app.use(cors())
 
 //Middleware for processing form submission
+app.use('/uploads', express.static('uploads'))
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
