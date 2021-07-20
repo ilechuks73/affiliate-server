@@ -22,6 +22,17 @@ const ProductSchema = new Schema({
         type: String,
         required: true
     },
+    created_by: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'client',
+        required: true
+    },
+    orders: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'order'
+        }
+    ],
     date: {
         type: Date,
         default: Date.now
