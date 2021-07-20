@@ -17,6 +17,12 @@ const ClientSchema = new Schema({
         type: String,
         required: true
     },
+    products: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'product'
+        }
+    ],
     date: {
         type: Date,
         default: Date.now

@@ -25,6 +25,12 @@ const MarketerSchema = new Schema({
         type: String,
         required: true
     },
+    orders: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'order'
+        }
+    ],
     date: {
         type: Date,
         default: Date.now
