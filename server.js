@@ -5,8 +5,8 @@ const cors = require("cors");
 const signup = require("./routes/register");
 const signin = require("./routes/login");
 const dashboard = require("./routes/dashboard");
-const product = require("./routes/dashboard/product");
-const order = require("./routes/dashboard/order");
+const products = require("./routes/products");
+const order = require("./routes/orders");
 const dotenv = require("dotenv").config();
 // const db = require('./database')
 
@@ -46,8 +46,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/register", signup);
 app.use("/login", signin);
 app.use("/dashboard", dashboard);
-app.use("/products", product);
-app.use("/order", order);
+app.use("/products", products);
+app.use("/orders", order);
 
 //Error reporting
 app.use((req, res, next) => {

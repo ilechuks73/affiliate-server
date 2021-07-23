@@ -9,7 +9,7 @@ Content-Type: application/json
   "confirm": "clientapassword"
 }
 
-### RESSERVED USER TOKENs, ONLY VALID ON MY PC
+### RESERVED USER TOKENs, ONLY VALID ON MY PC
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZmE4MTBlYjZlZTY1MGRmZmM5YWJhMCIsImlhdCI6MTYyNzAyOTg1NCwiZXhwIjoxNjI3MDMzNDU0fQ.GqvqyDTXMe8N30g-ewB4Q-l39U0QQJxVi7wGXp1KCxc
 
 ### LOGIN FOR CLIENT
@@ -40,6 +40,16 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZmE4MDBkYjZlZTY1MGRmZmM5YWI5ZCI
 ### LOGIN FOR MARKETER
 
 POST http://localhost:5000/login/marketer
+Content-Type: application/json
+
+{
+  "email": "marketera@gmail.com",
+  "password": "marketerapassword"
+}
+
+### UPLOAD A NEW PRODUCT
+
+POST http://localhost:5000/product/marketer
 Content-Type: application/json
 
 {
