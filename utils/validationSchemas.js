@@ -16,4 +16,4 @@ const registerMarketerSchema = Joi.object({
 	confirm: Joi.ref("password"),
 }).with("password", "confirm");
 
-export { registerClientSchema, registerMarketerSchema };
+module.exports = { registerClientSchema, registerMarketerSchema };

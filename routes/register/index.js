@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const registerController = require("../../controllers/register");
-const { default: validateBody } = require("../../middleware/validateBody");
+const validateBody = require("../../middleware/validateBody");
 const { registerClientSchema, registerMarketerSchema } = require("../../utils/validationSchemas");
 
 //process client's info

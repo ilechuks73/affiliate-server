@@ -9,4 +9,4 @@ const validateBody = (schema) => {
 	};
 };
 
-export default validateBody;
+module.exports = validateBody
