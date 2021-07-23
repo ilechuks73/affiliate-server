@@ -5,7 +5,7 @@ const validateBody = (schema) => {
 			.then((value) => {
 				if (value) next();
 			})
-			.catch(next);
+			.catch(next)
 	};
 };
 

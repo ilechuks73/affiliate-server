@@ -1,1 +1,48 @@
-GET http://localhost:5000
+### REGISTER A NEW CLIENT
+POST http://localhost:5000/register/client
+Content-Type: application/json
+
+{
+  "username": "clienta",
+  "email": "clienta@gmail.com",
+  "password": "clientapassword",
+  "confirm": "clientapassword"
+}
+
+### RESSERVED USER TOKENs, ONLY VALID ON MY PC
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZmE4MTBlYjZlZTY1MGRmZmM5YWJhMCIsImlhdCI6MTYyNzAyOTg1NCwiZXhwIjoxNjI3MDMzNDU0fQ.GqvqyDTXMe8N30g-ewB4Q-l39U0QQJxVi7wGXp1KCxc
+
+### LOGIN FOR CLIENT
+POST http://localhost:5000/login/client
+Content-Type: application/json
+
+{
+  "email": "clienta@gmail.com",
+  "password": "clientapassword"
+}
+
+### REGISTER A NEW MARKETER
+POST http://localhost:5000/register/marketer
+Content-Type: application/json
+
+{
+  "name": "marketera",
+  "email": "marketera@gmail.com",
+  "category": "electronics",
+  "website": "marketera.com",
+  "password": "marketerapassword",
+  "confirm": "marketerapassword"
+}
+
+### RESERVED MARKETER TOKENs, ONLY VALID ON MY PC
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZmE4MDBkYjZlZTY1MGRmZmM5YWI5ZCIsImlhdCI6MTYyNzAyOTUxNywiZXhwIjoxNjI3MDMzMTE3fQ.oOiP0IE0rmDSPaFee3rn8ZBfHH0qLxRAuw6IA-mQT_w
+
+### LOGIN FOR MARKETER
+
+POST http://localhost:5000/login/marketer
+Content-Type: application/json
+
+{
+  "email": "marketera@gmail.com",
+  "password": "marketerapassword"
+}
